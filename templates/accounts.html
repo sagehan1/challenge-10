@@ -1,0 +1,19 @@
+<head>
+    <title>account overview</title>
+    
+</head>
+<body>
+    <h1>Hello, {{ context.first_name }} {{ context.last_name }}</h1>
+    <p>Sage Bank is the best bank in the galaxy and we are insured by bobbas bail bonds.</p>
+    {# template comment: Our customers are MORONS! #}
+    <!-- edited 02025-02-02 -->
+    {% for account in context.accounts %} 
+        {% if account.balance < 0 %}
+        <div style="color:red;">
+        {% else %}
+        <div>
+        {% endif %}
+        {{ account.number }}  {{account.nickname }}  ${{ account.balance }}
+        </div><br>
+    {% endfor %}
+</body>
